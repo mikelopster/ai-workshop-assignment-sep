@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KBTG</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 6rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      color: #fff;
+      display: flex;
+      gap: 0.2em;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    }
+
+    h1 span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(50px) scale(0.8);
+      animation: fadeUp 1s forwards;
+    }
+
+    /* Sequential delays for letters */
+    #k { animation-delay: 0.2s; color: #ff4b2b; }
+    #b { animation-delay: 0.5s; color: #ffcd3c; }
+    #t { animation-delay: 0.8s; color: #4cd137; }
+    #g { animation-delay: 1.1s; color: #00a8ff; }
+
+    /* Floating infinite effect after fade */
+    h1 span::after {
+      content: '';
+      display: block;
+      height: 4px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: left;
+      animation: underline 0.8s forwards;
+      animation-delay: inherit;
+    }
+
+    /* Keyframes */
+    @keyframes fadeUp {
+      0% {
+        opacity: 0;
+        transform: translateY(50px) scale(0.8);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes underline {
+      to {
+        transform: scaleX(1);
+      }
+    }
+
+    /* Continuous floating animation */
+    h1 span {
+      animation: fadeUp 1s forwards, float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+  </style>
+</head>
+<body>
+  <h1>
+    <span id="k">K</span>
+    <span id="b">B</span>
+    <span id="t">T</span>
+    <span id="g">G</span>
+  </h1>
+</body>
+</html>
